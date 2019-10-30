@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <div class="navigation-buttons"> <div class="is-pulled-right">
-      <router-link to="/products" class="button">
-          <i class="fa fa-user-circle"></i><span>Shop</span>
-      </router-link>
-      <router-link to="/cart" class="button is-primary">
-          <i class="fa fa-shopping-cart"></i><span>{{ cartQuantity }}</span> 
-      </router-link>
-      </div> 
+    <div class="navigation-buttons">
+      <div class="is-pulled-right">
+        <router-link to="/products" class="button">
+          <i class="fa fa-user-circle"></i>
+          <span>Shop</span>
+        </router-link>
+        <router-link to="/cart" class="button is-primary">
+          <i class="fa fa-shopping-cart"></i>
+          <span>{{ cartQuantity }}</span>
+        </router-link>
+      </div>
     </div>
     <div class="container">
       <div class="columns">
@@ -19,28 +22,26 @@
   </div>
 </template>
 
+
 <script>
-import { mapGetters } from 'vuex';
-
+import { mapGetters } from "vuex";
 export default {
-  name: 'App',
-  created() {
-    this.$store.dispatch('getCartItems');
-    this.$store.dispatch('getProductItems');
-  },
+  name: "App",
   computed: {
-    ...mapGetters([
-       'cartQuantity'
-      ]),
+    ...mapGetters(["cartQuantity"])
   },
-
-}
+  created() {
+    this.$store.dispatch("getCartItems");
+    this.$store.dispatch("getProductItems");
+  }
+};
 </script>
 
 <style>
-html, body {
+html,
+body {
   height: 100%;
-  background: #F2F6FA;
+  background: #f2f6fa;
 }
 
 #app {

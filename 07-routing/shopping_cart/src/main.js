@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import App from './app/App.vue';
-import router from './app/router';
-import store from './app/store';
+import Vue from "vue";
+import App from "../src/app/App.vue";
+import store from "./app/store";
+import router from "./app/router";
 
 new Vue({
- router,
   store,
+  router,
   render: h => h(App)
-}).$mount('#app');
+}).$mount("#app");
