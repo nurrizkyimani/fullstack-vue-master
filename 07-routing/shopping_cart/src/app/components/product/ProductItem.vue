@@ -1,6 +1,9 @@
 <template>
-  <section id="product-item" class="box">
+  <section id="product-item" class="box" v-if="productItem">
     <div class="product-item__details">
+      <span class="return-icon" @click="$router.go(-1)">
+        <i class="fa fa-arrow-left is-primary"></i>
+      </span>
       <h1 class="title is-4">
         <p>{{ productItem.title }}</p>
         <span class="tag product-item__tag">{{ productItem.product_type }}</span>
@@ -32,7 +35,9 @@ export default {
   },
   methods: {
     addAndGoToCart(productItem) {
-      this.$store.dispatch("addCartItem", productItem);
+      this.$store.dispatch("addCartItem", productItem).then(() => {
+        this.$router.push("/cart");
+      });
     }
   }
 };
